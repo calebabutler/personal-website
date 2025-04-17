@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import InfoCard from "./InfoCard";
 import { Col, Container, Row } from "react-bootstrap";
 

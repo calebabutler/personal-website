@@ -3,7 +3,10 @@ import { Card } from "react-bootstrap";
 
 const InfoCard = (): ReactNode => {
     return (
-        <Card style={{ width: "18rem" }} className="border-0">
+        <Card
+            style={{ width: "18rem", position: "sticky", top: "6em" }}
+            className="border-0"
+        >
             <Card.Body>
                 <div className="ratio ratio-1x1 rounded-circle overflow-hidden">
                     <Card.Img variant="top" src="profile.png" />
