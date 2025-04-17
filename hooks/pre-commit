@@ -2,4 +2,5 @@ echo ":: Running eslint..."
 npx eslint . || exit 1
 echo ":: Running prettier..."
 npx prettier . --write || exit 1
-git update-index --again
+echo ":: Running git update-index..."
+git update-index --again || exit 1
