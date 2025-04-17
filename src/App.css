@@ -10,6 +10,10 @@ body {
     animation: fadeIn 0.5s linear !important;
 }
 
+.container {
+    max-width: 960px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
