@@ -7,15 +7,15 @@ body {
         "Proxima Nova", "Helvetica Neue", "Helvetica", "Segoe UI",
         "Nimbus Sans L", "Liberation Sans", "Open Sans", FreeSans, Arial,
         sans-serif !important;
-    animation: fadeInHold 1s linear !important;
+    animation: fadeInHold 0.5s linear !important;
 }
 
 .fadeOut {
-    animation: fadeOutHold 0.5s linear !important;
+    animation: fadeOutHold 0.25s linear !important;
 }
 
 .fadeIn {
-    animation: fadeInHold 0.5s linear !important;
+    animation: fadeInHold 0.25s linear !important;
 }
 
 .container {

@@ -21,6 +21,7 @@ const App = (): ReactNode => {
         TransitionState,
         SetTransitionState,
     ] = useState("" as TransitionState);
+
     return (
         <div className="min-vh-100 d-flex flex-column">
             <Header setTransitionState={setTransitionState} />
