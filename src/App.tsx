@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import InfoCard from "./InfoCard";
 import { Col, Container, Row } from "react-bootstrap";
+import Footer from "./Footer";
 
 const App = (): ReactNode => {
     return (
@@ -129,6 +130,7 @@ const App = (): ReactNode => {
                     </Col>
                 </Row>
             </Container>
+            <Footer />
         </>
     );
 };

@@ -7,4 +7,14 @@ body {
         "Proxima Nova", "Helvetica Neue", "Helvetica", "Segoe UI",
         "Nimbus Sans L", "Liberation Sans", "Open Sans", FreeSans, Arial,
         sans-serif !important;
+    animation: fadeIn 0.5s linear !important;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
