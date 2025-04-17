@@ -1,8 +1,25 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { Nav, Container, Navbar } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router";
+import { SetTransitionState } from "./App";
 
-const Header = (): ReactNode => {
-    const [selection, setSelection] = useState("home");
+interface HeaderProps {
+    setTransitionState: SetTransitionState;
+}
+
+const Header = ({ setTransitionState }: HeaderProps): ReactNode => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const navigateWithTransition = (path: string): void => {
+        setTransitionState("fadeOut");
+        setTimeout(() => {
+            navigate(path);
+            setTransitionState("fadeIn");
+            setTimeout(() => setTransitionState(""), 250);
+        }, 250);
+    };
+
     return (
         <Navbar expand="lg" bg="light" data-bs-theme="light" sticky="top">
             <Container>
@@ -11,26 +28,26 @@ const Header = (): ReactNode => {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
                         <Nav.Link
-                            active={selection === "home"}
-                            onClick={() => setSelection("home")}
+                            active={location.pathname === "/home"}
+                            onClick={() => navigateWithTransition("/home")}
                         >
                             Home
                         </Nav.Link>
                         <Nav.Link
-                            active={selection === "projects"}
-                            onClick={() => setSelection("projects")}
+                            active={location.pathname === "/projects"}
+                            onClick={() => navigateWithTransition("/projects")}
                         >
                             Projects
                         </Nav.Link>
                         <Nav.Link
-                            active={selection === "guides"}
-                            onClick={() => setSelection("guides")}
+                            active={location.pathname === "/guides"}
+                            onClick={() => navigateWithTransition("/guides")}
                         >
                             Guides
                         </Nav.Link>
                         <Nav.Link
-                            active={selection === "about"}
-                            onClick={() => setSelection("about")}
+                            active={location.pathname === "/about"}
+                            onClick={() => navigateWithTransition("/about")}
                         >
                             About
                         </Nav.Link>

@@ -1,9 +1,16 @@
 import { ReactNode } from "react";
 import { Container } from "react-bootstrap";
+import { TransitionState } from "./App";
 
-const Footer = (): ReactNode => {
+interface FooterProps {
+    transitionState: TransitionState;
+}
+
+const Footer = ({ transitionState }: FooterProps): ReactNode => {
     return (
-        <footer className="bg-light p-1 fs-6 text-end">
+        <footer
+            className={"mt-auto bg-light p-1 fs-6 text-end " + transitionState}
+        >
             <Container>
                 <small>
                     <a

@@ -1,137 +1,52 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import InfoCard from "./InfoCard";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "./Footer";
+import Home from "./pages/Home";
+import { Navigate, Route, Routes } from "react-router";
+import Projects from "./pages/Projects";
+import Guides from "./pages/Guides";
+import About from "./pages/About";
+
+export type TransitionState = "fadeIn" | "fadeOut" | "";
+export type SetTransitionState = React.Dispatch<
+    React.SetStateAction<TransitionState>
+>;
 
 const App = (): ReactNode => {
+    const [transitionState, setTransitionState]: [
+        TransitionState,
+        SetTransitionState,
+    ] = useState("" as TransitionState);
     return (
-        <>
-            <Header />
+        <div className="min-vh-100 d-flex flex-column">
+            <Header setTransitionState={setTransitionState} />
             <br />
             <Container>
                 <Row>
                     <Col md="auto">
                         <InfoCard />
                     </Col>
-                    <Col>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit. Quisque faucibus ex sapien vitae pellentesque
-                            sem placerat. In id cursus mi pretium tellus duis
-                            convallis. Tempus leo eu aenean sed diam urna
-                            tempor. Pulvinar vivamus fringilla lacus nec metus
-                            bibendum egestas. Iaculis massa nisl malesuada
-                            lacinia integer nunc posuere. Ut hendrerit semper
-                            vel class aptent taciti sociosqu. Ad litora torquent
-                            per conubia nostra inceptos himenaeos.
-                        </p>
+                    <Col className={transitionState}>
+                        <br />
+                        <Routes>
+                            <Route
+                                index
+                                element={<Navigate to="/home" replace />}
+                            />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/projects" element={<Projects />} />
+                            <Route path="/guides" element={<Guides />} />
+                            <Route path="/about" element={<About />} />
+                        </Routes>
                     </Col>
                 </Row>
             </Container>
-            <Footer />
-        </>
+            <Footer transitionState={transitionState} />
+        </div>
     );
 };
 
