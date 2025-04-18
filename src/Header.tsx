@@ -38,6 +38,31 @@ const Header = ({
         }, 125);
     };
 
+    const NavbarButtons = ({ className }: { className: string }) => {
+        return (
+            <Form className={className} inline>
+                <Row>
+                    <Col xs="auto">
+                        <Button
+                            onClick={() => {}}
+                            variant={useDarkMode ? "dark" : "light"}
+                        >
+                            Español
+                        </Button>
+                    </Col>
+                    <Col xs="auto">
+                        <Button
+                            onClick={() => setUseDarkMode(!useDarkMode)}
+                            variant={useDarkMode ? "light" : "dark"}
+                        >
+                            {useDarkMode ? "Light Mode" : "Dark Mode"}
+                        </Button>
+                    </Col>
+                </Row>
+            </Form>
+        );
+    };
+
     return (
         <Navbar
             expand="lg"
@@ -45,20 +70,10 @@ const Header = ({
             sticky="top"
         >
             <Container>
-                <Form inline>
-                    <Row>
-                        <Col xs="auto">
-                            <Button
-                                onClick={() => setUseDarkMode(!useDarkMode)}
-                                variant={useDarkMode ? "light" : "dark"}
-                            >
-                                {useDarkMode ? "Light Mode" : "Dark Mode"}
-                            </Button>
-                        </Col>
-                    </Row>
-                </Form>
                 <Navbar.Toggle />
-                <Navbar.Collapse className="justify-content-end">
+                {/* Render here on small screens */}
+                <NavbarButtons className="d-block d-lg-none" />
+                <Navbar.Collapse>
                     <Nav
                         className={"nav-theme-".concat(
                             useDarkMode ? "dark" : "light",
@@ -90,6 +105,8 @@ const Header = ({
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                {/* Render here only on large screens */}
+                <NavbarButtons className="d-none d-lg-block" />
             </Container>
         </Navbar>
     );
