@@ -1,13 +1,27 @@
 import { ReactNode, useEffect } from "react";
-import { Nav, Container, Navbar } from "react-bootstrap";
+import {
+    Nav,
+    Container,
+    Navbar,
+    Form,
+    Row,
+    Col,
+    Button,
+} from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router";
-import { SetTransitionState } from "./App";
+import { SetTransitionState, SetUseDarkMode, UseDarkMode } from "./App";
 
 interface HeaderProps {
     setTransitionState: SetTransitionState;
+    useDarkMode: UseDarkMode;
+    setUseDarkMode: SetUseDarkMode;
 }
 
-const Header = ({ setTransitionState }: HeaderProps): ReactNode => {
+const Header = ({
+    setTransitionState,
+    useDarkMode,
+    setUseDarkMode,
+}: HeaderProps): ReactNode => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -25,11 +39,31 @@ const Header = ({ setTransitionState }: HeaderProps): ReactNode => {
     };
 
     return (
-        <Navbar expand="lg" bg="light" data-bs-theme="light" sticky="top">
+        <Navbar
+            expand="lg"
+            bg={useDarkMode ? "dark-subtle" : "light"}
+            sticky="top"
+        >
             <Container>
+                <Form inline>
+                    <Row>
+                        <Col xs="auto">
+                            <Button
+                                onClick={() => setUseDarkMode(!useDarkMode)}
+                                variant={useDarkMode ? "light" : "dark"}
+                            >
+                                {useDarkMode ? "Light Mode" : "Dark Mode"}
+                            </Button>
+                        </Col>
+                    </Row>
+                </Form>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Nav>
+                    <Nav
+                        className={"nav-theme-".concat(
+                            useDarkMode ? "dark" : "light",
+                        )}
+                    >
                         <Nav.Link
                             active={location.pathname === "/home"}
                             onClick={() => navigateWithTransition("/home")}

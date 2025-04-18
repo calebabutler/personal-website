@@ -1,15 +1,18 @@
 import { ReactNode } from "react";
 import { Container } from "react-bootstrap";
-import { TransitionState } from "./App";
+import { TransitionState, UseDarkMode } from "./App";
 
 interface FooterProps {
     transitionState: TransitionState;
+    useDarkMode: UseDarkMode;
 }
 
-const Footer = ({ transitionState }: FooterProps): ReactNode => {
+const Footer = ({ transitionState, useDarkMode }: FooterProps): ReactNode => {
     return (
         <footer
-            className={"mt-auto bg-light p-1 fs-6 text-end " + transitionState}
+            className={"mt-auto p-1 fs-6 text-end "
+                .concat(transitionState)
+                .concat(useDarkMode ? " bg-dark-subtle" : " bg-light")}
         >
             <Container>
                 <small>

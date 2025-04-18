@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useLayoutEffect, useState } from "react";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -16,15 +16,37 @@ export type SetTransitionState = React.Dispatch<
     React.SetStateAction<TransitionState>
 >;
 
+export type UseDarkMode = boolean;
+export type SetUseDarkMode = React.Dispatch<React.SetStateAction<boolean>>;
+
 const App = (): ReactNode => {
     const [transitionState, setTransitionState]: [
         TransitionState,
         SetTransitionState,
     ] = useState("" as TransitionState);
 
+    const [useDarkMode, setUseDarkMode]: [UseDarkMode, SetUseDarkMode] =
+        useState(false);
+
+    // Set dark theme based on system theme
+    useLayoutEffect(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setUseDarkMode(true);
+        }
+    }, []);
+
     return (
-        <div className="min-vh-100 d-flex flex-column">
-            <Header setTransitionState={setTransitionState} />
+        <div
+            className={"min-vh-100 d-flex flex-column bg-body ".concat(
+                useDarkMode ? "text-light" : "text-dark",
+            )}
+            data-bs-theme={useDarkMode ? "dark" : "light"}
+        >
+            <Header
+                useDarkMode={useDarkMode}
+                setUseDarkMode={setUseDarkMode}
+                setTransitionState={setTransitionState}
+            />
             <br />
             <Container>
                 <Row>
@@ -46,7 +68,10 @@ const App = (): ReactNode => {
                     </Col>
                 </Row>
             </Container>
-            <Footer transitionState={transitionState} />
+            <Footer
+                useDarkMode={useDarkMode}
+                transitionState={transitionState}
+            />
         </div>
     );
 };

@@ -1,0 +1,6 @@
+/* A simple CSS file to prevent FOUC (Flash of unstyled content) */
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #212529;
+    }
+}

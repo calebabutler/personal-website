@@ -1,5 +1,9 @@
-.navbar-nav .active {
+[data-bs-theme="light"] .navbar-nav .active {
     border-bottom: 2px solid #1b1b1b;
+}
+
+[data-bs-theme="dark"] .navbar-nav .active {
+    border-bottom: 2px solid #ffffff;
 }
 
 body {
