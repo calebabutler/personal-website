@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router";
 import { SetTransitionState, SetUseDarkMode, UseDarkMode } from "./App";
+import { useTranslation } from "react-i18next";
 
 interface HeaderProps {
     setTransitionState: SetTransitionState;
@@ -24,6 +25,7 @@ const Header = ({
 }: HeaderProps): ReactNode => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         document.documentElement.scrollTo(0, 0);
@@ -44,10 +46,14 @@ const Header = ({
                 <Row>
                     <Col xs="auto">
                         <Button
-                            onClick={() => {}}
+                            onClick={() =>
+                                i18n.changeLanguage(
+                                    i18n.language === "en" ? "es" : "en",
+                                )
+                            }
                             variant={useDarkMode ? "dark" : "light"}
                         >
-                            Español
+                            {t("alternativeLanguage")}
                         </Button>
                     </Col>
                     <Col xs="auto">
@@ -55,7 +61,9 @@ const Header = ({
                             onClick={() => setUseDarkMode(!useDarkMode)}
                             variant={useDarkMode ? "light" : "dark"}
                         >
-                            {useDarkMode ? "Light Mode" : "Dark Mode"}
+                            {useDarkMode
+                                ? t("lightModeButton")
+                                : t("darkModeButton")}
                         </Button>
                     </Col>
                 </Row>
@@ -83,25 +91,25 @@ const Header = ({
                             active={location.pathname === "/home"}
                             onClick={() => navigateWithTransition("/home")}
                         >
-                            Home
+                            {t("homeTab")}
                         </Nav.Link>
                         <Nav.Link
                             active={location.pathname === "/projects"}
                             onClick={() => navigateWithTransition("/projects")}
                         >
-                            Projects
+                            {t("projectsTab")}
                         </Nav.Link>
                         <Nav.Link
                             active={location.pathname === "/guides"}
                             onClick={() => navigateWithTransition("/guides")}
                         >
-                            Guides
+                            {t("guidesTab")}
                         </Nav.Link>
                         <Nav.Link
                             active={location.pathname === "/about"}
                             onClick={() => navigateWithTransition("/about")}
                         >
-                            About
+                            {t("aboutTab")}
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
