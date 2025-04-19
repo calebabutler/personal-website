@@ -5,5 +5,7 @@
     "aboutTab": "About",
     "alternativeLanguage": "Español",
     "darkModeButton": "Dark Mode",
-    "lightModeButton": "Light Mode"
+    "lightModeButton": "Light Mode",
+    "githubRepository": "GitHub Repository",
+    "rssFeed": "RSS Feed"
 }

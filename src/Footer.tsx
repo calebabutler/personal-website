@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { TransitionState, UseDarkMode } from "./App";
+import { useTranslation } from "react-i18next";
 
 interface FooterProps {
     transitionState: TransitionState;
@@ -8,6 +9,7 @@ interface FooterProps {
 }
 
 const Footer = ({ transitionState, useDarkMode }: FooterProps): ReactNode => {
+    const { t } = useTranslation();
     return (
         <footer
             className={"mt-auto p-1 fs-6 text-end "
@@ -20,11 +22,11 @@ const Footer = ({ transitionState, useDarkMode }: FooterProps): ReactNode => {
                         className="link-secondary"
                         href="https://github.com/calebabutler/personal-website"
                     >
-                        GitHub Repository
+                        {t("githubRepository")}
                     </a>{" "}
                     |{" "}
                     <a className="link-secondary" href="feed.rss">
-                        RSS Feed
+                        {t("rssFeed")}
                     </a>
                 </small>
             </Container>
