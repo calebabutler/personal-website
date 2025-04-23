@@ -1,9 +1,9 @@
-import { ReactNode, useLayoutEffect, useState } from "react";
+import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import InfoCard from "./InfoCard";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import Footer from "./Footer";
 import { Navigate, Route, Routes } from "react-router";
 
@@ -26,6 +26,14 @@ export type SetTransitionState = React.Dispatch<
 export type UseDarkMode = boolean;
 export type SetUseDarkMode = React.Dispatch<React.SetStateAction<boolean>>;
 
+interface Repo {
+    full_name: string;
+    description: string;
+    html_url: string;
+    fork: boolean;
+    pushed_at: string;
+}
+
 const App = (): ReactNode => {
     const [transitionState, setTransitionState]: [
         TransitionState,
@@ -37,11 +45,58 @@ const App = (): ReactNode => {
 
     const { i18n } = useTranslation();
 
+    const [gitHubRepositories, setGitHubRepositories] = useState<ReactNode[]>(
+        [],
+    );
+
+    const downloadGitHubRepositories = async () => {
+        try {
+            const repos = await fetch(
+                "https://api.github.com/users/calebabutler/repos",
+                {
+                    method: "GET",
+                    headers: {
+                        Accept: "application/json",
+                    },
+                },
+            );
+            const response = await repos.json();
+            setGitHubRepositories(
+                response
+                    .filter((repo: Repo) => !repo.fork)
+                    .toSorted(
+                        (repo1: Repo, repo2: Repo) =>
+                            Date.parse(repo1.pushed_at) <
+                            Date.parse(repo2.pushed_at),
+                    )
+                    .map((repo: Repo, idx: number) => (
+                        <Col key={idx}>
+                            <Card className="h-100">
+                                <Card.Body>
+                                    <Card.Title>{repo.full_name}</Card.Title>
+                                    <Card.Text>{repo.description}</Card.Text>
+                                    <Card.Link href={repo.html_url}>
+                                        {repo.html_url}
+                                    </Card.Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )),
+            );
+        } catch {
+            console.log("GET request failed.");
+        }
+    };
+
     // Set dark theme based on system theme
     useLayoutEffect(() => {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
             setUseDarkMode(true);
         }
+    }, []);
+
+    useEffect(() => {
+        downloadGitHubRepositories();
     }, []);
 
     return (
@@ -83,9 +138,17 @@ const App = (): ReactNode => {
                                 path="/projects"
                                 element={
                                     i18n.language === "en" ? (
-                                        <EnProjects />
+                                        <EnProjects
+                                            gitHubRepositories={
+                                                gitHubRepositories
+                                            }
+                                        />
                                     ) : (
-                                        <EsProjects />
+                                        <EsProjects
+                                            gitHubRepositories={
+                                                gitHubRepositories
+                                            }
+                                        />
                                     )
                                 }
                             />
