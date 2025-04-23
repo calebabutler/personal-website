@@ -7,5 +7,7 @@
     "darkModeButton": "Dark Mode",
     "lightModeButton": "Light Mode",
     "githubRepository": "GitHub Repository",
-    "rssFeed": "RSS Feed"
+    "rssFeed": "RSS Feed",
+    "email": "Email",
+    "pgp": "Please use this <1>PGP key</1>."
 }

@@ -2,10 +2,12 @@
     "homeTab": "Inicio",
     "projectsTab": "Proyectos",
     "guidesTab": "Guías",
-    "aboutTab": "Acerca de mi",
+    "aboutTab": "Acerca de mí",
     "alternativeLanguage": "English",
     "darkModeButton": "Modo oscuro",
     "lightModeButton": "Modo claro",
     "githubRepository": "Repositorio de GitHub",
-    "rssFeed": "Fuente RSS"
+    "rssFeed": "Fuente RSS",
+    "email": "Correo electrónico",
+    "pgp": "Utilice esta <1>clave PGP</1>."
 }

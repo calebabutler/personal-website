@@ -5,11 +5,18 @@ import "./App.css";
 import InfoCard from "./InfoCard";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "./Footer";
-import Home from "./pages/Home";
 import { Navigate, Route, Routes } from "react-router";
-import Projects from "./pages/Projects";
-import Guides from "./pages/Guides";
-import About from "./pages/About";
+
+import EnHome from "./en-pages/Home";
+import EnProjects from "./en-pages/Projects";
+import EnGuides from "./en-pages/Guides";
+import EnAbout from "./en-pages/About";
+
+import EsHome from "./es-pages/Home";
+import EsProjects from "./es-pages/Projects";
+import EsGuides from "./es-pages/Guides";
+import EsAbout from "./es-pages/About";
+import { useTranslation } from "react-i18next";
 
 export type TransitionState = "fadeIn" | "fadeOut" | "";
 export type SetTransitionState = React.Dispatch<
@@ -27,6 +34,8 @@ const App = (): ReactNode => {
 
     const [useDarkMode, setUseDarkMode]: [UseDarkMode, SetUseDarkMode] =
         useState(false);
+
+    const { i18n } = useTranslation();
 
     // Set dark theme based on system theme
     useLayoutEffect(() => {
@@ -60,10 +69,46 @@ const App = (): ReactNode => {
                                 index
                                 element={<Navigate to="/home" replace />}
                             />
-                            <Route path="/home" element={<Home />} />
-                            <Route path="/projects" element={<Projects />} />
-                            <Route path="/guides" element={<Guides />} />
-                            <Route path="/about" element={<About />} />
+                            <Route
+                                path="/home"
+                                element={
+                                    i18n.language === "en" ? (
+                                        <EnHome />
+                                    ) : (
+                                        <EsHome />
+                                    )
+                                }
+                            />
+                            <Route
+                                path="/projects"
+                                element={
+                                    i18n.language === "en" ? (
+                                        <EnProjects />
+                                    ) : (
+                                        <EsProjects />
+                                    )
+                                }
+                            />
+                            <Route
+                                path="/guides"
+                                element={
+                                    i18n.language === "en" ? (
+                                        <EnGuides />
+                                    ) : (
+                                        <EsGuides />
+                                    )
+                                }
+                            />
+                            <Route
+                                path="/about"
+                                element={
+                                    i18n.language === "en" ? (
+                                        <EnAbout />
+                                    ) : (
+                                        <EsAbout />
+                                    )
+                                }
+                            />
                         </Routes>
                     </Col>
                 </Row>

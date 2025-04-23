@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 const Guides = (): ReactNode => {
-    return <>Guides.</>;
+    return <>Muy pronto.</>;
 };
 
 export default Guides;
