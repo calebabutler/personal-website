@@ -4,8 +4,8 @@ const Home = (): ReactNode => {
     return (
         <>
             <p>
-                Hello, I am Caleb. I am a software developer for work, but I am
-                also very passionate about software development, specifically{" "}
+                Hello, I am Caleb. I work as a software developer. I am also
+                very passionate about software development, specifically{" "}
                 <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">
                     free and open-source software
                 </a>

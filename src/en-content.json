@@ -9,5 +9,5 @@
     "githubRepository": "GitHub Repository",
     "rssFeed": "RSS Feed",
     "email": "Email",
-    "pgp": "Please use this <1>PGP key</1>."
+    "pgp": "If you would like, use this <1>PGP key</1>."
 }

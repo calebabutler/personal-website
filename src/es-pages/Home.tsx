@@ -4,9 +4,8 @@ const Home = (): ReactNode => {
     return (
         <>
             <p>
-                Hola, me llamo Caleb. Soy ingeniero de software por trabajo,
-                pero también me apasiona el ingeniería de software,
-                especialmente el{" "}
+                Hola, me llamo Caleb. Trabajo como ingeniero de software.
+                También me apasiona el ingeniería de software, especialmente el{" "}
                 <a href="https://es.wikipedia.org/wiki/Software_libre_y_de_c%C3%B3digo_abierto">
                     software libre y de código abierto
                 </a>

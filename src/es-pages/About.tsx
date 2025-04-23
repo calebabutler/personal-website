@@ -13,9 +13,9 @@ const About = (): ReactNode => {
             <p>
                 A Walnut le encanta saltar sobre la gente cuando menos se lo
                 esperan. Le gusta que la carguen y la acaricien, y te arañará si
-                no la acaricias. Come pienso seco. Es muy juguetona.
+                no la acaricias. Come alimento seco. Es muy juguetona.
             </p>
-            <p>A ambos les encantan las golosinas para gatos Temptations.</p>
+            <p>A ambos les encantan las croquetas para gatos Temptations.</p>
             <Row xs={2} className="g-4">
                 <Col>
                     <Card className="h-100 border-0 text-center">
