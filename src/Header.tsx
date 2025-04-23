@@ -42,7 +42,7 @@ const Header = ({
 
     const NavbarButtons = ({ className }: { className: string }) => {
         return (
-            <Form className={className} inline>
+            <Form className={className}>
                 <Row>
                     <Col xs="auto">
                         <Button
