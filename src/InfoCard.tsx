@@ -6,7 +6,7 @@ const InfoCard = (): ReactNode => {
     const { t } = useTranslation();
     return (
         <Card
-            style={{ width: "18rem", position: "sticky", top: "6em" }}
+            style={{ width: "18rem", position: "sticky", top: "3.6em" }}
             className="border-0"
         >
             <Card.Body>
