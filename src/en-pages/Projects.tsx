@@ -7,9 +7,11 @@ interface ProjectsProps {
 
 const Projects = ({ gitHubRepositories }: ProjectsProps): ReactNode => {
     return (
-        <Row xs={1} md={2} className="g-4">
-            {gitHubRepositories}
-        </Row>
+        <p>
+            <Row xs={1} md={2} className="g-4">
+                {gitHubRepositories}
+            </Row>
+        </p>
     );
 };
 

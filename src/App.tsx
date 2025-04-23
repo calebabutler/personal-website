@@ -27,7 +27,7 @@ export type UseDarkMode = boolean;
 export type SetUseDarkMode = React.Dispatch<React.SetStateAction<boolean>>;
 
 interface Repo {
-    full_name: string;
+    name: string;
     description: string;
     html_url: string;
     fork: boolean;
@@ -73,7 +73,7 @@ const App = (): ReactNode => {
                         <Col key={idx}>
                             <Card className="h-100">
                                 <Card.Body>
-                                    <Card.Title>{repo.full_name}</Card.Title>
+                                    <Card.Title>{repo.name}</Card.Title>
                                     <Card.Text>{repo.description}</Card.Text>
                                     <Card.Link href={repo.html_url}>
                                         {repo.html_url}
