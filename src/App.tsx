@@ -88,11 +88,6 @@ const App = (): ReactNode => {
         }
     };
 
-    const setUseDarkModeWithLocalStorage = (value: boolean): void => {
-        setUseDarkMode(value);
-        localStorage.setItem("darkMode", JSON.stringify(value));
-    };
-
     // Set dark theme based on system theme
     useLayoutEffect(() => {
         if (
@@ -116,7 +111,7 @@ const App = (): ReactNode => {
         >
             <Header
                 useDarkMode={useDarkMode}
-                setUseDarkMode={setUseDarkModeWithLocalStorage}
+                setUseDarkMode={setUseDarkMode}
                 setTransitionState={setTransitionState}
             />
             <br />

@@ -40,6 +40,11 @@ const Header = ({
         }, 125);
     };
 
+    const setUseDarkModeWithLocalStorage = (value: boolean): void => {
+        setUseDarkMode(value);
+        localStorage.setItem("darkMode", JSON.stringify(value));
+    };
+
     const NavbarButtons = ({ className }: { className: string }) => {
         return (
             <Form className={className}>
@@ -58,7 +63,9 @@ const Header = ({
                     </Col>
                     <Col xs="auto">
                         <Button
-                            onClick={() => setUseDarkMode(!useDarkMode)}
+                            onClick={() =>
+                                setUseDarkModeWithLocalStorage(!useDarkMode)
+                            }
                             variant={useDarkMode ? "light" : "dark"}
                         >
                             {useDarkMode
