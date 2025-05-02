@@ -5,16 +5,10 @@ const Home = (): ReactNode => {
         <>
             <p>
                 Hello, I am Caleb. I work as a software developer. I am also
-                very passionate about software development, specifically{" "}
-                <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">
-                    free and open-source software
-                </a>
-                , the{" "}
+                very passionate about software development, specifically the{" "}
                 <a href="https://www.yearofopen.org/november-open-perspective-what-is-open-web/what-is-the-open-web-and-why-is-it-important-submitted-by-mark-surman-executive-director-of-the-mozilla-foundation">
                     open web
-                </a>
-                , the{" "}
-                <a href="https://en.wikipedia.org/wiki/Fediverse">Fediverse</a>,
+                </a>{" "}
                 and{" "}
                 <a href="https://en.wikipedia.org/wiki/Self-hosting_(web_services)">
                     self-hosting

@@ -6,15 +6,9 @@ const Home = (): ReactNode => {
             <p>
                 Hola, me llamo Caleb. Trabajo como ingeniero de software.
                 También me apasiona el ingeniería de software, especialmente el{" "}
-                <a href="https://es.wikipedia.org/wiki/Software_libre_y_de_c%C3%B3digo_abierto">
-                    software libre y de código abierto
-                </a>
-                , el{" "}
                 <a href="https://www.mozilla.org/es-MX/about/manifesto">
                     Internet abierto
-                </a>
-                , el{" "}
-                <a href="https://es.wikipedia.org/wiki/Fediverso">Fediverso</a>,
+                </a>{" "}
                 y el{" "}
                 <a href="https://es.wikipedia.org/wiki/Autoalojamiento_(servicios_web)">
                     autoalojamiento
