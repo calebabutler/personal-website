@@ -4,7 +4,9 @@ import { Card, Col, Row } from "react-bootstrap";
 const About = (): ReactNode => {
     return (
         <>
-            <p>Vivo con mi prometida, Carla, y dos gatos, Blue y Walnut.</p>
+            <p>
+                Vivo con mi esposa, Carla, y nuestros dos gatos, Blue y Walnut.
+            </p>
             <p>
                 A Blue le encanta dormir y comer Meow Mix. También le encantan
                 los aperitivos Fancy Feast. Es muy hablador y le gusta sacar la

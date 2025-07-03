@@ -4,7 +4,9 @@ import { Card, Col, Row } from "react-bootstrap";
 const About = (): ReactNode => {
     return (
         <>
-            <p>I live with my fiancée, Carla, and two cats, Blue and Walnut.</p>
+            <p>
+                I live with my wife, Carla, and our two cats, Blue and Walnut.
+            </p>
             <p>
                 Blue loves to sleep and eat Meow Mix cups. He also loves the
                 Fancy Feast Appetizers. He is very talkative. He likes to stick
