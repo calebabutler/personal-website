@@ -1,0 +1,65 @@
+
+header {
+    text-align: center;
+}
+
+body {
+    margin: 40px auto;
+    max-width: 650px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    padding:0 10px;
+    font-family: "Proxima Nova", "Helvetica Neue", "Helvetica", "Segoe UI",
+                 "Nimbus Sans L", "Liberation Sans", "Open Sans", FreeSans, Arial,
+                 sans-serif;
+}
+
+a {
+    color: blue;
+}
+
+.headshot {
+    max-width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.cat-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.cat {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+h1, h2, h3 {
+    line-height:1.2;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #eee;
+        background-color: #212529;
+    }
+
+    a {
+        color: lightblue;
+    }
+}

@@ -1,6 +1,0 @@
-echo ":: Running eslint..."
-npx eslint . || exit 1
-echo ":: Running prettier..."
-npx prettier . --write || exit 1
-echo ":: Running git update-index..."
-git update-index --again || exit 1
